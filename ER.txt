@@ -1,0 +1,114 @@
+Graduated student -  NAME,ID,ADDRESS,TALLENTS , PREFERENCES ON COMPANIES , SALARY EXPECTED
+
+Company - NAME, REGISTEREDNO , ADDRESS.
+
+VACANCY - TITLE, 
+	  REQUIREMENTS - 1,2,3
+	  NO OF VACANCIES
+	  SALARY
+
+
+STUDENT RATES A COMPANY - RATING NUMBER,RATING DATE
+COMPANY HAS VACANCY ON ......
+============================================================================================
+
+//TODO
+NORMALIZATION
+
+
+
+
+
+ID,Tallents,PreferedCompanies       Name,Address,SalaryExpected
+
+
+Name,        FirstName,LastName
+
+
+DegreeCode,StudentID      Name,GPA,Class
+
+
+VacancyID,Requirements,CompanyID,StudentID,        JobTitle,NoOfVacancies,AllocatedSalary
+
+
+
+=======================================================================================================
+DATABASE
+Tables
+
+1. Student
+primary key - ID
+FirstName,LastName,Address,Tallents,PreferedCompanies,SalaryExpected
+
+
+2. Company
+primary key - RegisteredID
+Name,Location, //PreferedStudentID  //AvgRating
+
+3. Rating
+primary key - RatingID
+foeignKey - StudentID
+CompanyID,RatingNumber,RatingDate
+
+4. Vacancy
+primary key - VacancyID
+Foreignkey - companyID
+JobTitle,NoOfVacancies,Requirements,AllocatedSalary
+
+5. Degree
+primary key - Degreecode
+Foreign key - student ID
+Name,GPA,GraduatedYear,Class
+
+
+
+6. SignUp details
+	username
+	password
+
+=========================================================================================================
+//TODO:
+
+//QUARIES - ADD ENTRIES 
+          - SELECT THE STUDENTS WHO CAN APPLY FOR VACANCY
+          - GET THE AVERAGE RATING
+          - UPDATE 
+          - DELETE -  
+
+=============================================================================================================
+//assumption - 
+1 according to the degreecode,class check the vacancy can give to the student-      (selection box to select the degree,class)
+2.student can select prefered companies in our database,     give selection box
+
+
+
+==========================================================================================================
+//TODO:
+1
+//try to make selections
+forms 2 - > write to database tables
+
+2
+login,signup
+
+3
+profile page -> get data from tables 
+		update
+		delete 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
