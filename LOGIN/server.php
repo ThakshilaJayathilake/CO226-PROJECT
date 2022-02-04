@@ -76,7 +76,7 @@
 */
     
 
-    $db = mysqli_connect('localhost','root','','project') or die("could not connect to database");
+    $db = mysqli_connect('localhost','root','','co226project') or die("could not connect to database");
     
     
     if( isset($_POST['register'])){
