@@ -7,8 +7,8 @@
         <link rel="stylesheet" type="text/css" href="test.css" >
         <body class="reg">
             <div class ="loginbox2">
-                <img src="images.png" class="avatar">
-                <h1>Register Here</h1>
+                <img src="icon.jpg" class="avatar">
+                <h1>Registration</h1>
                 <form action="server.php" method="post">
                     <p>Username</p>
                     <input type="text" name="username" placeholder="Enter Username" required>
@@ -25,6 +25,7 @@
                 </form>
                 
             </div>
+            <a href="javascript:history.go(-1)"onMouseOver"self.status.referrer:return true"><button type="submit" class="back"> <img src="back.png" height ="50" width="50" /></button></a>
         </body>
     </head>
     <body>
