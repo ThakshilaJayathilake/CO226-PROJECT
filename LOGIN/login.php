@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="test.css" >
         <body>
             <div class ="loginbox">
-                <img src="images.png" class="avatar">
+                <img src="icon3.jpg" class="avatar">
                 <h1>Login Here</h1>
                 <form action="server.php" method="post">
                     <p>Username</p>
@@ -19,6 +19,10 @@
                 </form>
                 
             </div>
+            
+            <a href="javascript:history.go(-1)"onMouseOver"self.status.referrer:return true"><button type="submit" class="back"> <img src="back.png" height ="50" width="50" /></button></a>
+            
+
         </body>
     </head>
     <body>
