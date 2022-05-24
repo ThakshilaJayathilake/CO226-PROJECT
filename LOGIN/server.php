@@ -97,13 +97,14 @@
                 $row = mysqli_fetch_assoc($results2);
                 $category2 = $row["Category"];
 
-                if($category2==$category1){
-                    header('location: ../StudentOnestepForm.php');
-                }
-                else{
-                    header('location: ../CompanyOnestepForm.php');
+                header('location: ../profile/index.php');
+                // if($category2==$category1){
+                //     header('location: ../StudentOnestepForm.php');
+                // }
+                // else{
+                //     header('location: ../CompanyOnestepForm.php');
 
-                }
+                // }
                 
 
             }
