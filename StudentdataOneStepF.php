@@ -1,4 +1,5 @@
 <?php
+session_start();
 $server = "localhost";
 $username = "root";
 $password = "";
@@ -58,10 +59,15 @@ if (isset($_POST['submitFinal'])){
 
     $query7 = "INSERT INTO project (StudentID, Project) VALUES ('$studentID', '$projects')";
     $run7 = mysqli_query($conn, $query7);
+    $user = $_SESSION['username'];
+    $query8 = "UPDATE logindetails SET StudentID = " . $studentID . " WHERE UserName = '" .$user. "'";
+    $run8 = mysqli_query($conn, $query8);
+    $query9 = "INSERT INTO About (AboutMe,ImgName,StudentID) VALUES ('About Me','image','$studentID')";
+    $run9 = mysqli_query($conn, $query9);
     // 
-    if ($run1 && $run2 && $run4 ){
+    if ($run8 ){
         echo "Form submitted successfully !";
-        header('location: home.php');
+        header('location: LOGIN/login.php');
     }else{
         echo "Form not submitted !";
     }
