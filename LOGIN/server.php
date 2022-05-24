@@ -5,6 +5,7 @@
 
     $username = "";
     $email = "";
+    $category1 = "Student";
     $errors = array();
     $errors2 = array();
 
@@ -18,6 +19,8 @@
         $email = mysqli_real_escape_string($db,$_POST['email']) ;
         $password1 = mysqli_real_escape_string($db,$_POST['password1']) ;
         $password2 = mysqli_real_escape_string($db,$_POST['password2']) ;
+
+        $category =mysqli_real_escape_string($db,$_POST['category'])  ;
         
    
         
@@ -53,11 +56,11 @@
         if(count($errors)==0){
             
             $password = md5($password1); //encrypting the password
-            $query = "INSERT INTO logindetails (UserName,Email,Password) VALUES ('$username','$email','$password')";
+            $query = "INSERT INTO logindetails (UserName,Email,Password,Category) VALUES ('$username','$email','$password','$category')";
             mysqli_query($db,$query);
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are successfully logged in!";
-        
+            
             header('location: login.php');
         }
         else{
@@ -84,13 +87,25 @@
             
             $password = md5($password1); //encrypting the password
             $query = "SELECT * FROM logindetails WHERE UserName = '$username' AND Password='$password'";
+            $query2 = "SELECT Category FROM logindetails WHERE UserName = '$username' AND Password='$password'";
             $results2 = mysqli_query($db,$query);
             
             if(mysqli_num_rows($results2)){
                 $_SESSION['username'] = $username;
                 $_SESSION['success2'] = "You are successfully logged in!";
                 echo   $query ;
-                header('location: ../home2.php');
+                $row = mysqli_fetch_assoc($results2);
+                $category2 = $row["Category"];
+
+                header('location: ../profile/index.php');
+                // if($category2==$category1){
+                //     header('location: ../StudentOnestepForm.php');
+                // }
+                // else{
+                //     header('location: ../CompanyOnestepForm.php');
+
+                // }
+                
 
             }
             else{
