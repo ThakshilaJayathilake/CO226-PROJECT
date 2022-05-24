@@ -59,7 +59,7 @@
           <ul>
             <li><a class="lst lst-edit" href="edit_acc.php">Edit account</a></li>
             <li><a class="lst lst-switch" href="#">Switch account</a></li>
-            <li><a class="lst lst-sign" href="#">Sign out</a></li>
+            <li><a class="lst lst-sign" href="../LOGIN/login.php">Sign out</a></li>
           </ul>
         </div>
       </div>
