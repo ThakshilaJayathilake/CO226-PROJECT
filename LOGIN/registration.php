@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>Registration Form</title>
-        <link rel="stylesheet" type="text/css" href="test.css" >
+        <link rel="stylesheet" type="text/css" href="testt.css" >
         <body class="reg">
             <div class ="loginbox2">
                 <img src="icon.jpg" class="avatar">
@@ -18,8 +18,16 @@
                     <input type="password" name="password1" placeholder="Enter Password" required>
                     <p>Confirm Password</p>
                     <input type="password" name="password2" placeholder="Enter Password" required>
+                    
+
+                    <p >Register as a:</p>
+                    <select type="category" name="category">
+                    
+                    <option value ="Student" id="student">Student</option>
+                    <option value ="Company" id="company">Company</option>
+  
+                    </select>
                     <input type="submit" name="register" value="Register">
-                   
                     <a href="login.php">Already a user?</a>
 
                 </form>
