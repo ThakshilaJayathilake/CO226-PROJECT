@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>Registration Form</title>
-        <link rel="stylesheet" type="text/css" href="testt.css" >
+        <link rel="stylesheet" type="text/css" href="test.css" >
         <body class="reg">
             <div class ="loginbox2">
                 <img src="icon.jpg" class="avatar">
