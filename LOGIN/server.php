@@ -3,7 +3,7 @@
 
     session_start();
 
-    $username = "";
+    $USERNAME = "";
     $email = "";
     $category1 = "Student";
     $errors = array();
@@ -15,7 +15,7 @@
     
     if( isset($_POST['register'])){
         
-        $username = mysqli_real_escape_string($db,$_POST['username']) ;
+        $USERNAME = mysqli_real_escape_string($db,$_POST['username']) ;
         $email = mysqli_real_escape_string($db,$_POST['email']) ;
         $password1 = mysqli_real_escape_string($db,$_POST['password1']) ;
         $password2 = mysqli_real_escape_string($db,$_POST['password2']) ;
@@ -24,7 +24,7 @@
         
    
         
-        if(empty($username)){
+        if(empty($USERNAME)){
             array_push($errors,"Username is required");
         }
         if(empty($email)){
@@ -38,13 +38,13 @@
         }
         
         //check existing user names
-        $user_check_query = "SELECT * FROM logindetails WHERE UserName = '$username' or Email = '$email' LIMIT 1";
+        $user_check_query = "SELECT * FROM logindetails WHERE UserName = '$USERNAME' or Email = '$email' LIMIT 1";
         $results = mysqli_query($db,$user_check_query);
         $user = mysqli_fetch_assoc($results);
 
         
         if($user){
-            if($user['UserName'] == $username){
+            if($user['UserName'] == $USERNAME){
                 array_push($errors,"Username already exists");
             }
             if($user['Email'] == $email){
@@ -56,12 +56,23 @@
         if(count($errors)==0){
             
             $password = md5($password1); //encrypting the password
-            $query = "INSERT INTO logindetails (UserName,Email,Password,Category) VALUES ('$username','$email','$password','$category')";
+            $query = "INSERT INTO logindetails (Email,UserName,Password,Category) VALUES ('$email','$USERNAME','$password','$category')";
             mysqli_query($db,$query);
-            $_SESSION['username'] = $username;
+            $_SESSION['username'] = $USERNAME;
             $_SESSION['success'] = "You are successfully logged in!";
             
-            header('location: login.php');
+           // header('location: login.php');
+      
+
+            if($category==$category1){
+                 header('location: ../StudentOnestepForm.php');
+            }
+            else{
+                 header('location: ../CompanyOnestepForm.php');
+
+            }
+                
+
         }
         else{
             $_SESSION['error'] = $errors;
@@ -74,10 +85,10 @@
 
     if(isset($_POST['login'])){
       
-        $username = mysqli_real_escape_string($db,$_POST['username']) ;
+        $USERNAME = mysqli_real_escape_string($db,$_POST['username']) ;
         $password1 = mysqli_real_escape_string($db,$_POST['password1']) ;
 
-        if(empty($username)){
+        if(empty($USERNAME)){
             array_push($errors2,"Username is required");
         }
         if(empty($password1)){
@@ -86,16 +97,24 @@
         if(count($errors2)==0){
             
             $password = md5($password1); //encrypting the password
-            $query = "SELECT * FROM logindetails WHERE UserName = '$username' AND Password='$password'";
-            $query2 = "SELECT Category FROM logindetails WHERE UserName = '$username' AND Password='$password'";
+            $query = "SELECT * FROM logindetails WHERE UserName = '$USERNAME' AND Password='$password'";
+            $query2 = "SELECT Category FROM logindetails WHERE UserName = '$USERNAME' AND Password='$password'";
             $results2 = mysqli_query($db,$query);
             
             if(mysqli_num_rows($results2)){
-                $_SESSION['username'] = $username;
+                $_SESSION['username'] = $USERNAME;
                 $_SESSION['success2'] = "You are successfully logged in!";
                 echo   $query ;
                 $row = mysqli_fetch_assoc($results2);
                 $category2 = $row["Category"];
+
+                $GLOBALS['z']=$GLOBALS['USERNAME'];
+                $_SESSION['USERNAME'] =$USERNAME;
+                function getUsername() {
+                    $GLOBALS['z']=$USERNAME;
+                    return $USERNAME;
+                }
+                
 
                 header('location: ../profile/index.php');
                 // if($category2==$category1){
