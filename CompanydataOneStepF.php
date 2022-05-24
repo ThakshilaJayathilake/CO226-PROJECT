@@ -52,6 +52,7 @@ if (isset($_POST['submitFinal'])){
     //  AND $run2 AND $run3 AND $run4 AND $run5
     if ($run1){
         echo "Form submitted successfully !";
+        header('location: home.php');
     }else{
         echo "Form not submitted !";
     }

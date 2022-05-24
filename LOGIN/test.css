@@ -113,6 +113,7 @@ p{
     margin: 0;
     padding:0;
     font-weight: bold;
+    height: 25px;
 
 }
 .loginbox2 input{
@@ -132,15 +133,15 @@ p{
   
 
 }
-.loginbox2 input[type="password"],input[type="email"],input[type="text"]{
+.loginbox2 input[type="password"],input[type="email"],input[type="text"],select[type="category"]{
     border:none;
     border-bottom: transparent;
     background: transparent;
-    height:40px;
+    height:20px;
     color: #fff;
     font-size: 16px;
     position: relative;
-    top: -40px;
+    top: -30px;
   
 
 }
@@ -180,7 +181,7 @@ p{
     border: 3px solid #fff;
    
     position: relative;
-    top: -40px;
+    top: 10px;
   
    
   
@@ -210,11 +211,26 @@ p{
     line-height: 20px;
     color: darkgrey;
     position: relative;
-    top: -40px;
+    top: -5px;
 }
 .loginbox2 a:hover{
     
     color: #fff;
 }
+select{
+    background-color: #000;
+    color: darkgray;
+    
+
+}
+#student{
+    color:darkgrey;
+    background-color: #000;
+}
+#company{
+    color:darkgrey;
+    background-color: #000;
+}
+
 
 

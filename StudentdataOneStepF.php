@@ -33,7 +33,8 @@ if (isset($_POST['submitFinal'])){
     $salaryexpected = $_POST['salaryexpected'];
     $projects = $_POST['projects'];
     
-
+    $query4 = "INSERT INTO DEGREE (DegreeCode, Name, Class, GraduatedYear, GPA) VALUES ('$degreecode', '$degreename', '$class', '$graduatedyear', '$gpa')";
+    $run4 = mysqli_query($conn, $query4);
     $query1 = "INSERT INTO GRADUATED_STUDENT (StudentID, FirstName, MiddleName, LastName, ContactNumber, SalaryExpected, DegreeCode) VALUES 
                 ('$studentID', '$fname', '$mname', '$lname', '$phone', '$salaryexpected', '$degreecode')";
     $run1 = mysqli_query($conn, $query1);
@@ -47,8 +48,7 @@ if (isset($_POST['submitFinal'])){
     $query3 = "INSERT INTO LOCATION (Location) VALUES ('$location')";
     $run3 = mysqli_query($conn, $query3);
 
-    $query4 = "INSERT INTO DEGREE (DegreeCode, Name, Class, GraduatedYear, GPA) VALUES ('$degreecode', '$degreename', '$class', '$graduatedyear', '$gpa')";
-    $run4 = mysqli_query($conn, $query4);
+ 
 
     $query5 = "INSERT INTO project (StudentID, Project) VALUES ('$studentID', '$projects')";
     $run5 = mysqli_query($conn, $query5);
@@ -59,8 +59,9 @@ if (isset($_POST['submitFinal'])){
     $query7 = "INSERT INTO project (StudentID, Project) VALUES ('$studentID', '$projects')";
     $run7 = mysqli_query($conn, $query7);
     // 
-    if ($run1 AND $run2 AND $run3 AND $run4 AND $run5){
+    if ($run1 && $run2 && $run4 ){
         echo "Form submitted successfully !";
+        header('location: home.php');
     }else{
         echo "Form not submitted !";
     }
